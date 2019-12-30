@@ -3,7 +3,6 @@
 #### local path
 SQUAD_DIR=SQUAD
 INIT_CKPT_DIR=gs://run_bert_tpu/xlnet/xlnet_cased_L-12_H-768_A-12
-
 #### google storage path
 GS_ROOT=gs://run_bert_tpu/xlnet
 GS_INIT_CKPT_DIR=${GS_ROOT}/${INIT_CKPT_DIR}
@@ -12,13 +11,13 @@ GS_MODEL_DIR=${GS_ROOT}/experiment/squad
 
 # TPU name in google cloud
 
-python run_squad.py \
+python3 run_squad.py \
   --use_tpu=True \
   --tpu=${TPU_NAME} \
   --num_hosts=1 \
   --num_core_per_host=8 \
-  --model_config_path=${INIT_CKPT_DIR}/xlnet_config.json \
-  --spiece_model_file=${INIT_CKPT_DIR}/spiece.model \
+  --model_config_path=gs://run_bert_tpu/xlnet/xlnet_cased_L-12_H-768_A-12/xlnet_config.json \
+  --spiece_model_file=gs://run_bert_tpu/xlnet/xlnet_cased_L-12_H-768_A-12/spiece.model \
   --output_dir=${GS_PROC_DATA_DIR} \
   --init_checkpoint=${INIT_CKPT_DIR}/xlnet_model.ckpt \
   --model_dir=${GS_MODEL_DIR} \
