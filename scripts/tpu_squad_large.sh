@@ -2,7 +2,7 @@
 
 #### local path
 SQUAD_DIR=SQUAD
-INIT_CKPT_DIR=xlnet_cased_L-12_H-768_A-12
+INIT_CKPT_DIR=gs://run_bert_tpu/xlnet/xlnet_cased_L-12_H-768_A-12
 
 #### google storage path
 GS_ROOT=gs://run_bert_tpu/xlnet
@@ -20,7 +20,7 @@ python run_squad.py \
   --model_config_path=${INIT_CKPT_DIR}/xlnet_config.json \
   --spiece_model_file=${INIT_CKPT_DIR}/spiece.model \
   --output_dir=${GS_PROC_DATA_DIR} \
-  --init_checkpoint=${GS_INIT_CKPT_DIR}/xlnet_model.ckpt \
+  --init_checkpoint=${INIT_CKPT_DIR}/xlnet_model.ckpt \
   --model_dir=${GS_MODEL_DIR} \
   --train_file=${SQUAD_DIR}/train-v2.0.json \
   --predict_file=${SQUAD_DIR}/dev-v2.0.json \
