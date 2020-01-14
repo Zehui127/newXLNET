@@ -22,7 +22,7 @@ python run_squad.py \
   --init_checkpoint=${INIT_CKPT_DIR}/xlnet_model.ckpt \
   --model_dir=${GS_MODEL_DIR} \
   --train_file=${SQUAD_DIR}/train-v2.0.json \
-  --predict_file=${SQUAD_DIR}/dev-v2.0.json \
+  --predict_file=${SQUAD_DIR}/convHighConf-v3-wordflip-rem-num.json \
   --uncased=False \
   --max_seq_length=512 \
   --do_train=False \
